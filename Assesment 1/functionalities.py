@@ -1,25 +1,39 @@
 import os
 class BankOperations:
     def __init__(self):
-        self.file_name = "customers.txt"
-        if not os.path.exists(self.file_name):
-            open(self.file_name, 'w').close()
+        self.file_path = r"D:\\Tops assesment\Assesment 1\\customers.txt"
+        if not os.path.exists(self.file_path):
+            with open(self.file_path, 'w'):
+                pass  # Creates an empty file if it does not exist.
 
     def read_customers(self):
-        # Reads customer data from file.
         customers = {}
-        with open(self.file_name, "r") as file:
-            for line in file:
-                acc_no, name, balance, transactions = line.strip().split('|')
-                customers[acc_no] = {"name": name, "balance": float(balance), "transactions": transactions.split(',') if transactions else []}
+        try:
+            with open(self.file_path, "r") as file:
+                for line in file:
+                    parts = line.strip().split('|')
+                    if len(parts) < 3:
+                        continue
+                    acc_no, name, balance = parts[:3]
+                    transactions = parts[3].split(',') if len(parts) > 3 and parts[3] else []
+                    customers[acc_no] = {
+                        "name": name,
+                        "balance": float(balance),
+                        "transactions": transactions
+                    }
+        except Exception as e:
+            print(f"Error reading file: {e}")
         return customers
 
     def write_customers(self, customers):
-        # Writes customer data to file.
-        with open(self.file_name, "w") as file:
-            for acc_no, data in customers.items():
-                transactions = ','.join(data['transactions'])
-                file.write(f"{acc_no}|{data['name']}|{data['balance']}|{transactions}\n")
+        try:
+            with open(self.file_path, "w") as file:
+                for acc_no, data in customers.items():
+                    transactions = ','.join(data['transactions'])
+                    file.write(f"{acc_no}|{data['name']}|{data['balance']}|{transactions}\n")
+        except Exception as e:
+            print(f"Error writing to file: {e}")
+
 
     def create_account(self):
         # Creates a new customer account.
