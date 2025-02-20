@@ -15,7 +15,7 @@ def banker_menu():
         elif choice == '2':
             search_customer()
         elif choice == '3':
-            search_customer()  # For simplicity, using the same function for viewing a customer
+            search_customer()
         elif choice == '4':
             total_amount_in_bank()
         elif choice == '5':
