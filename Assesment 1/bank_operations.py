@@ -59,3 +59,29 @@ def check_balance():
         print(f"Your balance: {customers[acc_no]['balance']}\n")
     else:
         print("Account not found!\n")
+
+def delete_customer():
+    customers = read_customers()
+    acc_no = input("Enter the account no. of customer to delete: ").strip()
+    if acc_no in customers:
+        del customers[acc_no]
+        write_customers(customers)  # **Saving the updated dictionary**
+        print("Account deleted successfully!\n")
+    else:
+        print("Account not found!\n")
+
+def update_customer():
+    customers = read_customers()
+    acc_no = input("Enter the account no. of customer to update: ").strip()
+    if acc_no in customers:
+        name = input("Enter new Customer Name: ").strip()
+        balance = float(input("Enter new balance: ").strip())
+
+        # Preserve transactions instead of resetting them
+        customers[acc_no]["name"] = name
+        customers[acc_no]["balance"] = balance
+
+        write_customers(customers)  # Save updated data
+        print(f"Account {acc_no} updated successfully!\n")
+    else:
+        print("Account not found!\n")
