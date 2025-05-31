@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <style>
+    .transition-transform {
+      transition: transform 0.3s ease;
+    }
+    .collapsed {
+      transform: translateX(-100%);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 font-sans">
+
+  <!-- Sidebar toggle (mobile & small screens) -->
+  <header class="fixed top-0 left-0 right-0 z-10 bg-gray-800 flex items-center justify-between p-4">
+    <div class="flex items-center space-x-4">
+      <button id="sidebarToggle" class="text-white focus:outline-none">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+      <h3 class="text-white font-bold uppercase">Insurance Management</h3>
+    </div>
+    <a href="/logout" class="bg-teal-500 hover:bg-teal-600 text-white px-3 py-1 rounded text-sm font-semibold">Logout</a>
+  </header>
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="fixed top-16 left-0 h-full w-64 bg-gray-900 text-white flex flex-col items-center py-6 transition-transform z-20">
+    <img src="{% static customer.profile_pic.url %}" alt="Profile" class="w-24 h-24 rounded-full mb-2">
+    <h4 class="font-semibold">{{ request.user.first_name }}</h4>
+    <h6 class="text-gray-400">( Customer )</h6>
+
+    <nav class="mt-6 w-full">
+      <a href="/customer/customer-dashboard" class="flex items-center px-6 py-3 hover:bg-teal-500 w-full">
+        <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
+      </a>
+      <a href="/customer/apply-policy" class="flex items-center px-6 py-3 hover:bg-teal-500 w-full">
+        <i class="fab fa-product-hunt mr-2"></i> Apply Policy
+      </a>
+      <a href="/customer/history" class="flex items-center px-6 py-3 hover:bg-teal-500 w-full">
+        <i class="fas fa-history mr-2"></i> History
+      </a>
+      <a href="/customer/ask-question" class="flex items-center px-6 py-3 hover:bg-teal-500 w-full">
+        <i class="fas fa-question-circle mr-2"></i> Ask Question
+      </a>
+      <a href="/customer/question-history" class="flex items-center px-6 py-3 hover:bg-teal-500 w-full">
+        <i class="fas fa-sync-alt mr-2"></i> Question History
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main content -->
+  <main id="content" class="pt-20 pl-64 transition-all">
+    <div class="p-4">
+      {% block content %}
+      {% endblock content %}
+    </div>
+  </main>
+
+  <script>
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('sidebar');
+    const content = document.getElementById('content');
+
+    sidebarToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('collapsed');
+      if (sidebar.classList.contains('collapsed')) {
+        content.classList.remove('pl-64');
+        content.classList.add('pl-16');
+      } else {
+        content.classList.remove('pl-16');
+        content.classList.add('pl-64');
+      }
+    });
+  </script>
+</body>
+
+</html>

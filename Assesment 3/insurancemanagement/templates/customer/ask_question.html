@@ -1,0 +1,20 @@
+{% extends 'customer/customerbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<div class="max-w-2xl mx-auto p-4">
+  <h2 class="text-center text-2xl font-bold text-blue-600 mb-4">Ask Question</h2>
+  
+  <form method="POST" autocomplete="off" class="bg-white p-6 rounded-lg shadow">
+    {% csrf_token %}
+    
+    <div class="mb-4">
+      <label for="description" class="block text-gray-700 font-semibold mb-2">Problem</label>
+      {% render_field questionForm.description class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-500" placeholder="Describe your problem here" %}
+    </div>
+    
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Ask</button>
+  </form>
+</div>
+
+{% endblock content %}

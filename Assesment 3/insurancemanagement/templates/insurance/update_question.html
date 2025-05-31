@@ -1,0 +1,34 @@
+{% extends 'insurance/adminbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<head>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<br><br>
+<h3 class="text-center text-2xl font-semibold mb-8">Update Question</h3>
+
+<div class="max-w-3xl mx-auto px-4">
+  <form method="post" autocomplete="off" enctype="multipart/form-data" class="space-y-6">
+    {% csrf_token %}
+
+    <div>
+      <label for="description" class="block mb-2 font-medium text-gray-700">Question</label>
+      {% render_field questionForm.description class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" %}
+    </div>
+
+    <div>
+      <label for="admin_comment" class="block mb-2 font-medium text-gray-700">Your Comment</label>
+      <input type="text" name="admin_comment" id="admin_comment"
+        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+    </div>
+
+    <div>
+      <input type="submit" value="Update"
+        class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-md cursor-pointer transition-colors duration-300" />
+    </div>
+  </form>
+</div>
+
+<br><br><br><br><br><br><br><br>
+{% endblock content %}

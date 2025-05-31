@@ -1,0 +1,51 @@
+{% extends 'insurance/adminbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<head>
+  <!-- Tailwind CDN, if not globally included -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<br><br>
+<h3 class="text-center text-2xl font-semibold mb-8">UPDATE POLICY</h3>
+
+<div class="max-w-3xl mx-auto px-4">
+  <form method="post" autocomplete="off" enctype="multipart/form-data" class="space-y-6">
+    {% csrf_token %}
+
+    <div>
+      <label for="category" class="block mb-2 font-medium text-gray-700">Category</label>
+      {% render_field policyForm.category class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Life Insurance" %}
+    </div>
+
+    <div>
+      <label for="policy_name" class="block mb-2 font-medium text-gray-700">Policy Name</label>
+      {% render_field policyForm.policy_name class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Jeevan Surbhi" %}
+    </div>
+
+    <div>
+      <label for="sum_assurance" class="block mb-2 font-medium text-gray-700">Sum Assurance</label>
+      {% render_field policyForm.sum_assurance class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="100000" %}
+    </div>
+
+    <div>
+      <label for="premium" class="block mb-2 font-medium text-gray-700">Premium</label>
+      {% render_field policyForm.premium class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="5000" %}
+    </div>
+
+    <div>
+      <label for="tenure" class="block mb-2 font-medium text-gray-700">Tenure</label>
+      {% render_field policyForm.tenure class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="12" %}
+    </div>
+
+    <div>
+      <input type="submit" value="Update"
+        class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-md cursor-pointer transition-colors duration-300" />
+    </div>
+  </form>
+</div>
+
+<br><br><br><br><br><br><br><br>
+
+{% endblock content %}

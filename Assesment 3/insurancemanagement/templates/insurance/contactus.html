@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Feedback - Your Insurance Company</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+
+<body class="bg-white">
+
+  {% include "insurance/navbar.html" %}
+  <br /><br />
+
+  <div class="text-center max-w-lg mx-auto px-4">
+
+    <form method="POST" autocomplete="off" class="space-y-6 text-left">
+      {% csrf_token %}
+      <div>
+        {{ form.as_p }}
+      </div>
+
+      <div>
+        <input type="submit" value="Send Message" 
+               class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg cursor-pointer transition-colors" />
+      </div>
+    </form>
+  </div>
+
+  {% include "insurance/footer.html" %}
+</body>
+
+</html>

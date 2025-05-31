@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Homepage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind CSS -->
+  <link href="{% static 'css/output.css' %}" rel="stylesheet">
+
+  <style>
+    .hero-bg {
+      background-image: url('{% static "image/homepage.jpg" %}');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-gray-800">
+
+  {% include "insurance/navbar.html" %}
+
+  <!-- Hero Section -->
+  <section class="hero-bg flex flex-col justify-center items-center text-center min-h-[80vh] md:min-h-[90vh]">
+    <div class="bg-black bg-opacity-50 w-full h-full flex flex-col justify-center items-center p-4">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Secure Your Future</h1>
+      <p class="text-lg md:text-xl text-gray-200 max-w-md">
+        Your trusted partner in insurance and financial planning.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quote Section -->
+  <section class="bg-gray-100 py-8 px-4">
+    <p class="text-xl font-semibold text-center text-gray-700 mb-4">
+      “Whole life does two things for you: Protects your family and allows you to save for your future.”
+    </p>
+    <p class="text-center text-gray-600">- Dinara</p>
+  </section>
+
+  {% include "insurance/footer.html" %}
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+{% extends 'insurance/adminbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<style>
+  a:link, a:visited {
+    text-decoration: none;
+    color: white;
+  }
+
+  .order-card {
+    color: #fff;
+  }
+
+  .bg-c-green {
+    background: #4C51BF;
+  }
+
+  .card {
+    box-shadow: 0 1px 2.94px rgba(4, 26, 55, 0.16);
+    border: 1px solid black;
+    margin-bottom: 30px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .card .card-block {
+    padding: 25px;
+  }
+
+  .order-card i {
+    font-size: 26px;
+  }
+
+  .f-left {
+    float: left;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 767px) {
+    .f-left, .text-right {
+      float: none;
+      text-align: left;
+    }
+  }
+</style>
+
+<div class="container mt-4">
+
+  <div class="row mb-4">
+    <div class="col-md-3 col-xl-3">
+      <div class="card bg-c-green order-card">
+        <div class="card-block">
+          <h6 class="mb-3"><a href="{% url 'admin-view-policy' %}">View Policy</a></h6>
+          <h2 class="text-right"><i class="fas fa-eye f-left"></i></h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-xl-3">
+      <div class="card bg-c-green order-card">
+        <div class="card-block">
+          <h6 class="mb-3"><a href="{% url 'admin-add-policy' %}">Add Policy</a></h6>
+          <h2 class="text-right"><i class="fas fa-plus f-left"></i></h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-xl-3">
+      <div class="card bg-c-green order-card">
+        <div class="card-block">
+          <h6 class="mb-3"><a href="{% url 'admin-update-policy' %}">Update Policy</a></h6>
+          <h2 class="text-right"><i class="fas fa-edit f-left"></i></h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-xl-3">
+      <div class="card bg-c-green order-card">
+        <div class="card-block">
+          <h6 class="mb-3"><a href="{% url 'admin-delete-policy' %}">Delete Policy</a></h6>
+          <h2 class="text-right"><i class="fas fa-trash f-left"></i></h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-3 col-xl-3">
+      <div class="card bg-c-green order-card">
+        <div class="card-block">
+          <h6 class="mb-3"><a href="{% url 'admin-view-policy-holder' %}">Total Applied Policy Holder</a></h6>
+          <h2 class="text-right"><i class="fas fa-user-cog f-left"></i><span>{{ total_policy_holder }}</span></h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-xl-3">
+      <div class="card bg-c-green order-card">
+        <div class="card-block">
+          <h6 class="mb-3"><a href="{% url 'admin-view-approved-policy-holder' %}">Approved Policy Holder</a></h6>
+          <h2 class="text-right"><i class="fas fa-user-check f-left"></i><span>{{ approved_policy_holder }}</span></h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-xl-3">
+      <div class="card bg-c-green order-card">
+        <div class="card-block">
+          <h6 class="mb-3"><a href="{% url 'admin-view-disapproved-policy-holder' %}">Disapproved Policy Holder</a></h6>
+          <h2 class="text-right"><i class="fas fa-user-times f-left"></i><span>{{ disapproved_policy_holder }}</span></h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-xl-3">
+      <div class="card bg-c-green order-card">
+        <div class="card-block">
+          <h6 class="mb-3"><a href="{% url 'admin-view-waiting-policy-holder' %}">Policy Holder Waiting For Approval</a></h6>
+          <h2 class="text-right"><i class="fas fa-user-clock f-left"></i><span>{{ waiting_policy_holder }}</span></h2>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Use FontAwesome kit or CDN -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+{% endblock content %}

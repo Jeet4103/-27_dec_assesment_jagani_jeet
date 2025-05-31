@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Insurance Management System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind CSS -->
+  <link href="{% static 'css/output.css' %}" rel="stylesheet" />
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body class="bg-gray-100">
+  <!-- Navbar -->
+  <nav class="bg-slate-900 text-white rounded-b-md shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <!-- Left: Logo & links -->
+        <div class="flex items-center space-x-4">
+          <!-- Logo -->
+          <a href="/" class="flex items-center space-x-2 text-white">
+            <i class="fas fa-shield-alt text-indigo-400 text-2xl"></i>
+            <span class="font-semibold text-lg">Insurance Management</span>
+          </a>
+          <!-- Nav Links -->
+          <div class="hidden md:flex space-x-4 ml-6">
+            <a href="/customer/customerclick" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-slate-700 transition">Customer</a>
+            <a href="/adminlogin" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-slate-700 transition">Admin</a>
+            <a href="/aboutus" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-slate-700 transition">About Us</a>
+            <a href="/contactus" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-slate-700 transition">Contact Us</a>
+          </div>
+        </div>
+
+        <!-- Right: Mobile menu toggle button only -->
+        <button id="mobile-toggle" class="md:hidden focus:outline-none">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden px-4 pb-3">
+      <a href="/customer/customerclick" class="block py-2 border-t border-slate-700 hover:bg-slate-800 rounded-md">Customer</a>
+      <a href="/adminlogin" class="block py-2 border-t border-slate-700 hover:bg-slate-800 rounded-md">Admin</a>
+      <a href="/aboutus" class="block py-2 border-t border-slate-700 hover:bg-slate-800 rounded-md">About Us</a>
+      <a href="/contactus" class="block py-2 border-t border-b border-slate-700 hover:bg-slate-800 rounded-md">Contact Us</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+ 
+
+  <script>
+    // Toggle mobile menu
+    document.getElementById("mobile-toggle").addEventListener("click", () => {
+      document.getElementById("mobile-menu").classList.toggle("hidden");
+    });
+  </script>
+</body>
+
+</html>

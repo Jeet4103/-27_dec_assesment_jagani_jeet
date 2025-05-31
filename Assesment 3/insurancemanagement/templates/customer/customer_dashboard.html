@@ -1,0 +1,48 @@
+{% extends 'customer/customerbase.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="bg-indigo-600 text-white rounded-lg shadow hover:shadow-lg transition duration-300 p-6">
+      <h6 class="text-sm mb-2 font-medium">
+        <a href="apply-policy" class="hover:underline">Available Policy</a>
+      </h6>
+      <div class="flex items-center justify-between">
+        <i class="fab fa-product-hunt text-2xl"></i>
+        <span class="text-xl font-semibold">{{ available_policy }}</span>
+      </div>
+    </div>
+
+    <div class="bg-indigo-600 text-white rounded-lg shadow hover:shadow-lg transition duration-300 p-6">
+      <h6 class="text-sm mb-2 font-medium">
+        <a href="history" class="hover:underline">Applied Policy</a>
+      </h6>
+      <div class="flex items-center justify-between">
+        <i class="fab fa-product-hunt text-2xl"></i>
+        <span class="text-xl font-semibold">{{ applied_policy }}</span>
+      </div>
+    </div>
+
+    <div class="bg-indigo-600 text-white rounded-lg shadow hover:shadow-lg transition duration-300 p-6">
+      <h6 class="text-sm mb-2 font-medium">
+        <a href="/" class="hover:underline">Policy Categories</a>
+      </h6>
+      <div class="flex items-center justify-between">
+        <i class="fas fa-list-alt text-2xl"></i>
+        <span class="text-xl font-semibold">{{ total_category }}</span>
+      </div>
+    </div>
+
+    <div class="bg-indigo-600 text-white rounded-lg shadow hover:shadow-lg transition duration-300 p-6">
+      <h6 class="text-sm mb-2 font-medium">
+        <a href="question-history" class="hover:underline">Total Question Asked</a>
+      </h6>
+      <div class="flex items-center justify-between">
+        <i class="fas fa-question-circle text-2xl"></i>
+        <span class="text-xl font-semibold">{{ total_question }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

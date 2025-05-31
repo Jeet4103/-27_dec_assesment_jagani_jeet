@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>About Us - Your Insurance Company</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Include Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-white">
+
+  {% include "insurance/navbar.html" %}
+  
+  <br /><br />
+
+  
+  <div class="jumbotron text-center mt-0 mb-0 py-10">
+    <p class="text-xl italic leading-relaxed max-w-xl mx-auto px-4">
+      “Every month that you send a check to the life insurance company, you're making a bet with them. Don't worry, one day you'll win.”
+    </p>
+    <hr class="my-6 border-gray-300 max-w-xl mx-auto" />
+    <p class="text-lg mb-6">Explore our Website.</p>
+    <p>
+      <a href="/" role="button" 
+         class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg transition-colors">
+        HOME
+      </a>
+    </p>
+    <br /><br /><br /><br />
+  </div>
+
+  {% include "insurance/footer.html" %}
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+{% extends 'customer/customerbase.html' %}
+{% block content %}
+{% load static %}
+
+<div class="pt-20 px-4">
+  <div class="max-w-4xl mx-auto bg-white shadow rounded-lg overflow-hidden">
+    <div class="bg-gray-800 p-4">
+      <h6 class="text-center text-white font-semibold text-lg">Asked Question History</h6>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="min-w-full table-auto text-sm text-left text-gray-700">
+        <thead class="bg-gray-200 text-gray-600 uppercase">
+          <tr>
+            <th class="px-4 py-2">Serial No.</th>
+            <th class="px-4 py-2">Question</th>
+            <th class="px-4 py-2">Admin Comment</th>
+            <th class="px-4 py-2">Asked Date</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          {% for t in questions %}
+          <tr class="hover:bg-gray-50">
+            <td class="px-4 py-2">{{ forloop.counter }}</td>
+            <td class="px-4 py-2">{{ t.description }}</td>
+            <td class="px-4 py-2">{{ t.admin_comment|default:"No comment yet" }}</td>
+            <td class="px-4 py-2">{{ t.asked_date }}</td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="4" class="px-4 py-4 text-center text-gray-500">No questions asked yet.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

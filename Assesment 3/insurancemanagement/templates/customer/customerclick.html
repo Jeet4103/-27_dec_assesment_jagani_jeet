@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Customer Welcome</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind CSS -->
+  <link href="{% static 'css/output.css' %}" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+  {% include "insurance/navbar.html" %}
+
+  <section class="flex flex-col justify-center items-center text-center min-h-[80vh] bg-white py-12">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Hello, Customer</h1>
+    <p class="text-lg text-gray-700 mb-6">Welcome to the Insurance Management System</p>
+    <hr class="w-16 border-2 border-indigo-500 mb-6">
+    <p class="text-gray-600 mb-8">You can access various features after login.</p>
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a href="customersignup" class="px-6 py-3 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 transition text-sm font-semibold">
+        Create Your Account
+      </a>
+      <a href="customerlogin" class="px-6 py-3 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 transition text-sm font-semibold">
+        Login
+      </a>
+    </div>
+  </section>
+
+  {% include "insurance/footer.html" %}
+
+</body>
+</html>

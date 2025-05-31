@@ -1,0 +1,21 @@
+{% extends 'insurance/adminbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<div class="max-w-xl mx-auto p-4">
+  <h2 class="text-center text-2xl font-bold text-blue-600 mb-4">Add Category</h2>
+  
+  <form method="POST" autocomplete="off" class="space-y-4">
+    {% csrf_token %}
+    <div>
+      <label for="category_name" class="block text-sm font-medium text-gray-700">Category Name</label>
+      {% render_field categoryForm.category_name class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2" placeholder="Life Insurance" %}
+    </div>
+    
+    <div class="flex justify-center">
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Add</button>
+    </div>
+  </form>
+</div>
+
+{% endblock content %}
